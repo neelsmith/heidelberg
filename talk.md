@@ -10,7 +10,7 @@
 
 1. Architecture and workflow
 2. Application:
-    - the construction of the Venetus MS
+    - the construction of the Venetus A MS
     - identifying Aristarchan material
 
 
