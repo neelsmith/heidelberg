@@ -1,0 +1,7 @@
+- XML archive
+- explicit semantic model/model of *contents* to complement citation model
+- multiple published editions from this
+    - paleographically normalized
+    - orthographically normalized
+    - ...
+    - TM normalized
