@@ -1,6 +1,6 @@
 
 
-##Recovering the history of Iliadic scholia: architecture and initial results from the Homer Multitext project  (HMT)
+## Recovering the history of Iliadic scholia: architecture and initial results from the Homer Multitext project  (HMT)
 
 
 
