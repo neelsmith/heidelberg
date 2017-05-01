@@ -1,6 +1,6 @@
 
 
-##Recovering the history of Iliadic scholia: architecture and initial results from the Homer Multitext project  (HMT)
+## Recovering the history of Iliadic scholia: architecture and initial results from the Homer Multitext project  (HMT)
 
 
 
@@ -19,7 +19,8 @@
 
 ## Workflow
 
-- XML archive
+- XML source validated against explicit content model
+- Pointy brackets stay in the archive
 - generate multiple published editions:
     - paleographically normalized
     - orthographically normalized
