@@ -1,8 +1,10 @@
 
 
-## Recovering the history of Iliadic scholia: architecture and initial results from the Homer Multitext project  (HMT)
+## Recovering the history of Iliadic scholia
 
 
+
+Melody Wauke, Charlie Schufreider, Neel Smith
 
 ---
 
@@ -16,33 +18,49 @@
 
 ---
 
+## Shared semantic model
+
+
+1. Lexical contents:
+    - classified tokenization
+    - editorial status
+    - alternate readings
+2. Editorial disambiguation (e.g., named entities)
+3. Discourse disambiguation
+
+---
 
 ## Workflow
 
-- XML source validated against explicit content model
-- Pointy brackets stay in the archive
-- generate multiple published editions:
-    - paleographically normalized
-    - orthographically normalized
-    - ...
-    - TM normalized
-- choose edition appropriate to analysis
+- content model encoded in TEI XML
+- pointy brackets stay in the archive
+- generate multiple published versions:
+    - pure diplomatic
+    - paleographically normalized, orthographically normalized, ...
+    - optimized for TM
+- choose version appropriate to analysis
 
 
 ---
 
-## Explicit semantic model
-
->Specific model of *contents* complements universal model of citation (OHCO2)
+## Versions aligned with URNs
 
 
-- Lexical model
-- Editorial disambiguation (e.g., named entities)
-- Discourse disambiguation
+- OHCO2 model of citation
+- *versions* share a single parent *edition* in URN's work hierarchy
+
+
+
 
 ---
 
-## HMT model - Venetus A
+
+## Applying the model
+
+---
+
+
+## Venetus A
 
 [Folio 12 recto](https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg)
 
@@ -152,9 +170,10 @@ Digitial diplomatic editions in separate XML documents
 <img src="https://raw.githubusercontent.com/mwauke/seniorThesis/master/Screen%20Shot%202017-04-21%20at%201.06.04%20AM.png" width="500" height="304">
 
 ---
+
 ## Significant topics for analysis
 
-### Topic 9: Language used when discussing Aristarchus
+**Topic 9**: Language used when discussing Aristarchus
 
 ![Topic 9](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Topic09.png)
 
