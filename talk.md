@@ -41,6 +41,8 @@
 
 ![Folio 12 recto](12r.jpg)
 
+<img src="https://raw.githubusercontent.com/neelsmith/heidelberg/master/12r.jpg" alt="alt text" width="10" height="20">
+
 
 
 ----
