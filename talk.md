@@ -46,3 +46,18 @@
 
 
 ----
+
+## Transmission of the *Iliad*
+
+- orally composed (2nd millennium B.C.E.)
+- Library of Alexandria : editions (3rd and 2nd c. B.C.E.)
+    - Aristarchus
+    - Zenodotus
+- Venetus A manuscript (10th c. C.E.)
+- Homer Multitext (21st c. C.E.)
+
+---
+
+## HMT approach to unique layout of scholia
+
+![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
