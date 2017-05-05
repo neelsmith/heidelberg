@@ -82,7 +82,7 @@ Digitial diplomatic editions in separate XML documents
 
 ---
 
-## The data set and methodoloy for topic model
+## The data set and methodology for topic model
 
 - 18 books of scholia (~8000) from Homer Multitext's digital editions
   - includes personal name identifiers
