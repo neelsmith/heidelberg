@@ -161,9 +161,6 @@ Digitial diplomatic editions in separate XML documents
 
 ---
 
----
-
-
 ## Features for analysis
 
 ### Aristarchan features
@@ -179,5 +176,58 @@ Digitial diplomatic editions in separate XML documents
 - Post-Aristarchan name
 - Higher topic 9 score
 
+---
+
+## Manually classify a training set of 100 scholia
+
+- Aristarchan
+- Aristarchan paraphrase
+- post-Aristarchan
+- indeterminate
 
 ---
+
+## Decision tree model trained from manually labeled set
+
+DecisionTreeClassificationModel depth 5 with 25 nodes
+
+----
+
+    If (feature 2 <= 0.0)
+      If (feature 4 <= 0.0)
+        If (feature 5 <= 0.0)
+
+         If (feature 4 <= 0.0)
+        If (feature 5 <= 0.0)
+
+
+         If (feature 7 <= 0.00606060606060606)
+          If (feature 7 <= 0.00103626943005181)
+           Predict: 3.0
+          Else (feature 7 > 0.00103626943005181)
+           Predict: 4.0
+         Else (feature 7 > 0.00606060606060606)
+          If (feature 6 <= 0.00122699386503067)
+           Predict: 2.0
+          Else (feature 6 > 0.00122699386503067)
+
+      ...
+
+----
+
+## Applying the model
+
+- evaluate model: success against training set (up to 90%)
+- apply to reamining 7900+ scholia:
+
+How many of each class?
+
+- Main scholia contain the majority of Aristarchan and post-Aristarchan language
+- Intermarginal and Interior scholia contain more Aristarchan paraphrases
+- Zones are *not* the best feature for indicating language-type
+
+---
+
+- Analyze scholia as a collection of various features
+- Working Aristarchan identifier
+  - Possible to recover material directly from Aristarchus' editions (2nd century BCE)
