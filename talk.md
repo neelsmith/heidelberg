@@ -35,6 +35,11 @@
 
 >Specific model of *contents* complements universal model of citation (OHCO2)
 
+
+- Lexical model
+- Editorial disambiguation (e.g., named entities)
+- Discourse disambiguation
+
 ---
 
 ## HMT model - Venetus A
@@ -90,7 +95,7 @@ Digitial diplomatic editions in separate XML documents
 - LDA topic modelling using ToPan software
     - Utilize topic distribution values (θ)
 
-  
+
 ---
 
 ## 15-Topic Model, from ToPan
@@ -231,7 +236,7 @@ How many of each class?
 - Analyze scholia as a collection of various features
 - Working Aristarchan identifier
   - Possible to recover material directly from Aristarchus' editions (2nd century BCE)
-  
+
 ---
 
 ## Conclusions
