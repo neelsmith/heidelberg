@@ -39,7 +39,7 @@
 
 ## HMT model - Venetus A
 
-![Folio 12 recto](12r.jpg =100x20)
+![Folio 12 recto](12r.jpg)
 
 
 
