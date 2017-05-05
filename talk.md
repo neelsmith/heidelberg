@@ -86,8 +86,10 @@ Digitial diplomatic editions in separate XML documents
 
 - 18 books of scholia (~8000) from Homer Multitext's digital editions
   - includes personal name identifiers
+- Create a TM edition of scholia
 - LDA topic modelling using ToPan software
     - Utilize topic distribution values (θ)
+
   
 ---
 
@@ -110,3 +112,9 @@ Digitial diplomatic editions in separate XML documents
 | Main scholia (yellow)           | 3597 (45.3%)         | 45.0 (32.37%)           |
 | **Intermarginal scholia (red)** | **1219 (15.4%)**     | **65.0 (46.76%)**       |
 | Interior scholia (blue)         | 819 (10.3%)          | 28.0 (20.14%)           |
+
+---
+
+## One conclusion
+
+- there is a distinct distribution of content in each zone
