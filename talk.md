@@ -93,3 +93,13 @@ Digitial diplomatic editions in separate XML documents
 ## 15-Topic Model, from ToPan
 
 ![Topic 9: most significant words](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/TranslatedToPan9.jpg)
+
+---
+
+## Distribution of Scholia
+
+| Zone                            | Total distrib. in Ven. A | Distrib. within Topic 9 |
+|:--------------------------------|:---------------------|:------------------------|
+| Main scholia (yellow)           | 3597 (45.3%)         | 45.0 (32.37%)           |
+| **Intermarginal scholia (red)** | **1219 (15.4%)**     | **65.0 (46.76%)**       |
+| Interior scholia (blue)         | 819 (10.3%)          | 28.0 (20.14%)           |
