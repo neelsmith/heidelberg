@@ -37,9 +37,9 @@
 
 ---
 
-## HMT model
+## HMT model - Venetus A
 
-includes ...
+![Folio 12 recto](12r.jpg)
 
 
 
