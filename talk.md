@@ -231,3 +231,13 @@ How many of each class?
 - Analyze scholia as a collection of various features
 - Working Aristarchan identifier
   - Possible to recover material directly from Aristarchus' editions (2nd century BCE)
+  
+---
+
+## Conclusions
+
+Advantages of a semantic model for the HMT:
+
+- create specialized versions of scholia from archive
+- use TM to relate layout and content of Ven. A
+- identify source material with machine-learning model
