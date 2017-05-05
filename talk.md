@@ -39,9 +39,9 @@
 
 ## HMT model - Venetus A
 
-![Folio 12 recto](12r.jpg)
+[Folio 12 recto](https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg)
 
-<img src="https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg" width="1000" height="1188">
+<img src="https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg" width="500" height="594">
 
 
 
