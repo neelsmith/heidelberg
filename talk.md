@@ -105,7 +105,7 @@ Digitial diplomatic editions in separate XML documents
 
 ---
 
-## Distribution of Scholia
+##  Scholia Distribution in Venetus A vs topic 9
 
 | Zone                            | Total distrib. in Ven. A | Distrib. within Topic 9 |
 |:--------------------------------|:---------------------|:------------------------|
@@ -114,7 +114,5 @@ Digitial diplomatic editions in separate XML documents
 | Interior scholia (blue)         | 819 (10.3%)          | 28.0 (20.14%)           |
 
 ---
-
-## One conclusion
 
 - there is a distinct distribution of content in each zone
