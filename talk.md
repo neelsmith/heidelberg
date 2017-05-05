@@ -63,3 +63,12 @@
 Digitial diplomatic editions in separate XML documents
 
 ![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
+
+---
+
+## Why this unique five-zoned layout?
+
+- Interlinear glosses
+- Exterior editorial work
+
+![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
