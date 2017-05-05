@@ -60,4 +60,6 @@
 
 ## HMT approach to unique layout of scholia
 
+Digitial diplomatic editions
+
 ![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
