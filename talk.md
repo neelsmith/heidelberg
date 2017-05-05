@@ -18,11 +18,19 @@ Melody Wauke, Charlie Schufreider, Neel Smith
 
 ---
 
-## Shared semantic model
+
+## Architecture
+
+1. canonical citation
+2. explicit semantic model
+
+---
+
+## Semantic model
 
 
 1. Lexical contents:
-    - classified tokenization
+    - sequence of classified tokens
     - editorial status
     - alternate readings
 2. Editorial disambiguation (e.g., named entities)
@@ -75,7 +83,8 @@ Melody Wauke, Charlie Schufreider, Neel Smith
 - Library of Alexandria : editions (3rd and 2nd c. B.C.E.)
     - Aristarchus
     - Zenodotus
-- Venetus A manuscript (10th c. C.E.)
+- Venetus A manuscript (10th c.)
+- Wolf, *Prolegomena ad Homerum* (1795)
 - Homer Multitext (21st c. C.E.)
 
 ---
@@ -108,10 +117,9 @@ Digitial diplomatic editions in separate XML documents
 ## The data set and methodology for topic model
 
 - 18 books of scholia (~8000) from Homer Multitext's digital editions
-  - includes personal name identifiers
-- Create a TM edition of scholia
+- create a TM version of scholia
 - LDA topic modelling using ToPan software
-    - Utilize topic distribution values (θ)
+    - utilize topic distribution values (θ)
 
 
 ---
@@ -248,7 +256,7 @@ How many of each class?
 
 - Main scholia contain the majority of Aristarchan and post-Aristarchan language
 - Intermarginal and Interior scholia contain more Aristarchan paraphrases
-- Zones are *not* the best feature for indicating language-type
+- Zones are *not* the best feature for indicating source
 
 ---
 
