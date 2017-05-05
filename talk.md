@@ -44,7 +44,6 @@
 <img src="https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg" width="500" height="594">
 
 
-
 ----
 
 ## Transmission of the *Iliad*
@@ -72,3 +71,25 @@ Digitial diplomatic editions in separate XML documents
 - Exterior editorial work
 
 ![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
+
+---
+
+##  Why important? Scholia Overlap
+
+*Iliad* Lines|Lines With Scholia|Lines w/ Overlapping Scholia
+--- | --- |  ---
+~12000|4216 (35%)|1167 (9.7%)
+
+---
+
+## The data set and methodoloy for topic model
+
+- 18 books of scholia (~8000) from Homer Multitext's digital editions
+  - includes personal name identifiers
+- LDA topic modelling using ToPan software
+  
+---
+
+## 15-Topic Model, from ToPan
+
+![Topic 9: most significant words](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/TranslatedToPan9.jpg)
