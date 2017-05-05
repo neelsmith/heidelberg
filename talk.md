@@ -87,12 +87,19 @@ Digitial diplomatic editions in separate XML documents
 - 18 books of scholia (~8000) from Homer Multitext's digital editions
   - includes personal name identifiers
 - LDA topic modelling using ToPan software
+    - Utilize topic distribution values (θ)
   
 ---
 
 ## 15-Topic Model, from ToPan
 
 ![Topic 9: most significant words](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/TranslatedToPan9.jpg)
+
+---
+
+## Extract scholia with high topic distribution values for each topic
+
+![Sample Theta-Table](https://raw.githubusercontent.com/cjschu17/drdwPortfolio/master/images/DRDW-presentation/Screen%20Shot%202016-12-08%20at%201.03.37%20AM.png)
 
 ---
 
