@@ -116,3 +116,68 @@ Digitial diplomatic editions in separate XML documents
 ---
 
 - there is a distinct distribution of content in each zone
+- what can the content tell us about sources?
+
+---
+
+## Sources for the Venetus A scholia
+
+- Limited information on source material
+- Manuscript cites four specific sources from 1st and 2nd centuries C.E.
+- Alexandrian editors' editions no longer extant at time of manuscript construction
+
+---
+
+## Recovering Aristarchan material
+
+- Identify cluster of features which suggest source (Aristarchan, post-Aristarchan)
+- create a model for identifying Aristarchan scholia
+
+---
+
+## Suggestions of Aristarchan *language*
+
+
+- Critical Signs come from Aristarchus' editions
+- Explanatory scholia (ὅτι...) transmitted with signs are also Aristarchan
+- Only Zenodotus "writes" (ζηνόδοτος γράφει...) vs. παρὰ Ζηνοδότῳ
+
+[Critical signs](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Screen%20Shot%202017-04-21%20at%201.06.04%20AM.png)
+
+<img src="https://raw.githubusercontent.com/mwauke/seniorThesis/master/Screen%20Shot%202017-04-21%20at%201.06.04%20AM.png" width="500" height="304">
+
+---
+## Significant topics for analysis
+
+### Topic 9: Language used when discussing Aristarchus
+
+![Topic 9](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Topic09.png)
+
+---
+
+### Topic 6: Aristarchan language
+
+![Topic 6](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Topic06.png)
+
+---
+
+---
+
+
+## Features for analysis
+
+### Aristarchan features
+- Critical sign
+- γράφει (active)
+- Initial ὅτι
+- Higher topic 6 score
+
+### Post-Aristarchan features
+
+- παρὰ Ζηνοδότῳ
+- Aristarchus' name
+- Post-Aristarchan name
+- Higher topic 9 score
+
+
+---
