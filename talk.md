@@ -70,9 +70,9 @@ Melody Wauke, Charlie Schufreider, Neel Smith
 
 ## Venetus A
 
-[Folio 12 recto](https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg)
+[Folio 12 recto](imgs/VenA-12r.jpg)
 
-<img src="https://raw.githubusercontent.com/neelsmith/heidelberg/master/VenA-12r.jpg" width="500" height="594">
+<img src="imgs/VenA-12r.jpg" width="500" height="594">
 
 
 ----
@@ -93,7 +93,7 @@ Melody Wauke, Charlie Schufreider, Neel Smith
 
 Digitial diplomatic editions in separate XML documents
 
-![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
+![Folio 12 recto](imgs/DSE2.JPG)
 
 ---
 
@@ -102,7 +102,7 @@ Digitial diplomatic editions in separate XML documents
 - Interlinear glosses
 - Exterior editorial work
 
-![Folio 12 recto](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/DSE2.JPG)
+![Folio 12 recto](imgs/DSE2.JPG)
 
 ---
 
@@ -126,13 +126,13 @@ Digitial diplomatic editions in separate XML documents
 
 ## 15-Topic Model, from ToPan
 
-![Topic 9: most significant words](https://raw.githubusercontent.com/cjschu17/Thesis2016-2017/master/images/TranslatedToPan9.jpg)
+![Topic 9: most significant words](imgs/TranslatedToPan9.jpg)
 
 ---
 
 ## Extract scholia with high topic distribution values for each topic
 
-![Sample Theta-Table](https://raw.githubusercontent.com/cjschu17/drdwPortfolio/master/images/DRDW-presentation/Screen%20Shot%202016-12-08%20at%201.03.37%20AM.png)
+![Sample Theta-Table](imgs/thetatable.png)
 
 ---
 
@@ -173,9 +173,9 @@ Digitial diplomatic editions in separate XML documents
 - Explanatory scholia (ὅτι...) transmitted with signs are also Aristarchan
 - Only Zenodotus "writes" (ζηνόδοτος γράφει...) vs. παρὰ Ζηνοδότῳ
 
-[Critical signs](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Screen%20Shot%202017-04-21%20at%201.06.04%20AM.png)
+[Critical signs](imgs/critsigns.png)
 
-<img src="https://raw.githubusercontent.com/mwauke/seniorThesis/master/Screen%20Shot%202017-04-21%20at%201.06.04%20AM.png" width="500" height="304">
+<img src="imgs/critsigns.png" width="500" height="304">
 
 ---
 
@@ -183,13 +183,13 @@ Digitial diplomatic editions in separate XML documents
 
 **Topic 9**: Language used when discussing Aristarchus
 
-![Topic 9](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Topic09.png)
+![Topic 9](imgs/Topic09.png)
 
 ---
 
 ### Topic 6: Aristarchan language
 
-![Topic 6](https://raw.githubusercontent.com/mwauke/seniorThesis/master/Topic06.png)
+![Topic 6](imgs/Topic06.png)
 
 ---
 
