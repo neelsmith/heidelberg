@@ -34,7 +34,7 @@ Melody Wauke, Charlie Schufreider, Neel Smith
     - editorial status
     - alternate readings
 2. Editorial disambiguation (e.g., named entities)
-3. Discourse disambiguation
+3. Discourse disambiguation (e.g., text reuse)
 
 ---
 
