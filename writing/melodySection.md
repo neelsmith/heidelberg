@@ -28,18 +28,18 @@ Topic 9 consists of words used to discuss Aristarchus, his editions, and other e
 
 Thus my final list of features which I chose to extract for each scholion can be divided into four Aristarchan features and four post-Aristarchan features: 
 
-##Aristarchan features
+## Aristarchan features
 
 * Critical sign
 * γράφει (active)
 * Initial ὅτι
+* Higher topic 6 score
 
-Higher topic 6 score
-Post-Aristarchan features
-παρὰ Ζηνοδότῳ
-Aristarchus' name
-Post-Aristarchan name
-Higher topic 9 score
+## Post-Aristarchan features
+* παρὰ Ζηνοδότῳ
+* Aristarchus' name
+* Post-Aristarchan name
+* Higher topic 9 score
 
 After I defined this set, I then determined how many of the boolean features each scholion contained, as well as extracted the topic modeling scores of both topic 6 and topic 9 for each scholion. I was working with the main, interior, and intermarginal scholia during this process. 
 
