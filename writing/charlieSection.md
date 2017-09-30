@@ -1,4 +1,4 @@
-This paper will now conclude with a abbreviated discussion of two research questions concerning the history of the Iliadic scholia which we were able to pursue through our digital edition of the Venetus A. While a longer discussion is possible, the aim here is to highlight how the implementation of the semantic model in our digital editions makes the following analyses possible. The first analysis concerns the layout of scholia within a typical page of the Venetus A.
+This paper will now engage in an abbreviated discussion of two research questions concerning the history of the Iliadic scholia which we were able to pursue through our digital edition of the Venetus A. While a longer discussion is possible, the aim here is to highlight how the implementation of the semantic model in our digital editions makes the following analyses possible. The first analysis concerns the layout of scholia within a typical page of the Venetus A.
 
 ![Folio 12 recto](https://raw.githubusercontent.com/neelsmith/heidelberg/master/imgs/DSE2.JPG)
 
