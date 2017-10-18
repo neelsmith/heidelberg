@@ -47,130 +47,18 @@ We take as a point of departure the central idea of the Greek term ἔκδωσι
 If the scholarly community has well defined solutions to these problems, however, we lack any comparable consensus on how to make an edition *semantically* accessible.  It may once have been a goal of the TEI to facilitate interchange of texts, but the reality today is that using XML following TEI guidelines guarantees that you can *not* simply exchange texts with other projects.  The guidelines are rich, and frequently offer multiple recommended solutions to a problem;  the generic schemas for validating TEI following the guidelines allow multiple possible embeddings and sequences of elements even when the editor intends to follow a single recommendation.[^teiambig]  Alternative readings are a further complication:  every form of TEI `choice` element presents an ambiguity that a digital reader has to resolve.
 
 
-[^teiambig]:  Consider a simple example that can enormously complicate digital reading of a text.  We can use the TEI `persName` element to identify personal names, and TEI `abbr` to identify abbreviations.  But what is the proper encoding of an abbreviated personal name?  The "TEI-all" schema allows an example like `<persName><abbr>Αριστ</abbr></persName>`;  it also allows `  <abbr><persName>Αριστ</persName></abbr>`.
+[^teiambig]:  Consider a simple example that can enormously complicate digital reading of a text.  We can use the TEI `persName` element to identify personal names, and TEI `abbr` to identify abbreviations.  But what is the proper encoding of an abbreviated personal name?  The "TEI-all" schema allows an example like `<persName><abbr>ΑΡΙΣΤ</abbr></persName>`;  it also allows `  <abbr><persName>ΑΡΙΣΤ</persName></abbr>`.
 
-More generally, XML is limited to validating a given syntax; real semantic accessibility would require that we validate contents as well.
+More generally, XML is limited to validating a given syntax; real semantic accessibility would require that we validate contents as well.  Like many projects, therefore, the HMT has defined not only its own project-specific guidelines for using a subset of the TEI guidelines, but also editorial standards for encoding the contents of the documents.
 
-Like many projects, therefore, the HMT has defined its own project standards for using a subset of the TEI guidelines, and imposes 
+In 2014 and 2015, we began to go beyond simply giving editors a document with prose guidelines.  We identified abstract features of our editions (for example, "editions must distinguish numeric tokens from alphabetic tokens").  We specified an XML syntax for representing each feature (e.g., "numeric tokens are tagged with TEI `num`").  At the same time, we implemented each feature in an object model that could parse XML and evaluate whether it complies with our specifications.  We are currently working with an implementation of the full model of HMT editions written in Scala.[^textmodel]
 
-## Validation beyond TEI syntax
 
+[^textmodel]: Like all our work, the impelmentation is available from publicly visible github repositories. See https://github.com/homermultitext/hmt-textmodel  We would especially like to thank HMT Project Manager Stephanie Lindeborg of Boston Latin Academy for her work on this part of the project.
 
-1.   syntax: validate TEI usage against *project* standards
-2.   editorial content: validate identifiers
-3.   text: validate morphology
+Our initial motivation was to create an editors' manual specifying syntax and restrictions on contents (such as allowed character encodings, and controlled vocabularies for identifiers), and a parallel implementation in code so that all contributors could validate their work in progress against a single, machine-enforced standard.[^citizenscholar] In 2016-2017, the co-authors recognized that we could leverage the same code library to generate multiple, semantically unambiguous editions from a single, rich XML source.  TEI XML documents validated against our project standards serve as archival editions, from which we create plain-text editions without any XML markup.  We can, for example, generate pure diplomatic plain-text editions, or plain-text editions reflecting scribal corrections, or editions normalized against modern orthographic practices.  Because all of our plain-text editions are derived from a single, canonically citable source, they can be automatically aligned.  We can identify exactly which token in one edition correspond to a given token in another edition.
 
 
+[^citizenscholar]: For a discussion of some of the ways this has made it possible for the HMT to accept contributions from more than 150 team members, see Neel Smith, "Citizen Scholarship in the Homer Multitext Project"  in *Pushing the Boundaries of Historia* (edited by Lee Fratantuono and Mary English) (Routledge: forthcoming).
 
-## Requires an abstract model!
-
-
-
-## A general pattern
-
-1.  abstract model
-2.  specification (syntax)
-3.  implementation
-
-
--   requires full object model to process correctly
-
-
-
-
-
-## Abstract model
-
->Ordered hierarchy of citation objects (OHCO2)
-
-
-
-
-1.  editors' manual (specification)
-2.  code implementation
-3.  code implementation applied to TEI document
-
-
-
-##  *ex una, plures*
-
-1.  Archival edition in TEI
-2.  Publishable editions in simple text format
-
-
-
-
-## Canonical citation
-
-
--   align different *Iliad*s
--   disagree about editions
-
-
-## Digital diplomatic edition
-
--   falsifiable:  citable visual evidence
--   complete (HMT: "every anthropogenic mark")
-
-
-
-
-
-
-
-
-
-# Traditional (print) critical editions
-
--   selective evidence (app.crit.) for...
--   a version extant in no source...
--   using an ambiguous notation
-
-
-
-## Application in HMT
-
--   200 contributors able to validate their work
--   (but model has evolved)
-
-## Computer-assisted *verification*
-
-
-See forthcoming.[^citizenscholar]
-
-
-[^citizenscholar]: Neel Smith, "Citizen Scholarship in the Homer Multitext Project"  in *Pushing the Boundaries of Historia* (edited by Lee Fratantuono and Mary English) (Routledge: forthcoming).
-
-
-
-
-
-## Consequences
-
--   each suited to distinct kinds of analysis
--   all editions automatically aligned
-
-
->**Digital** editions for **digital** readings
-
-
-
-
-
-
-
-In this paper we emphasize the architecutre that made these results possible.
-
-Our understanding of editing:
-
--   archival versus "readable" / "publishable" editions of a text
--   reading for a specific purpose
-
-Automated alignment of distinct versions from citation
-
-And...
-
-
-pattern of
-
-> abstract model -> specification -> implementation
+At this point we are no longer limited to producing editions for immediate reading by humans:  reading is not just for people any more.  We can create editions for specific kinds of reading, including specific kinds of automated reading.
