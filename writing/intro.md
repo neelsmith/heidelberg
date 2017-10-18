@@ -35,66 +35,23 @@ The Homer Multitext edition is filling this gap.  The work we describe here anal
 
 ## When is a digital document a digital edition?
 
-Within the Homer Multitext project, the experience of editing the Venetus A manuscript has prompted extended reflection and debate about what it means to edit a text.  What is different when an edition is digital?
+Within the Homer Multitext project, the experience of editing the Venetus A manuscript has prompted extended reflection and debate about what it means to edit a text.  What changes when an edition is digital?  All of us are excited about emerging possibilities of digital reading at multiple scales:  not just systematic searching, but "reading" to identify latent patterns we don't even know to search for.  How do we create *digital* editions that can support a full range of *digital* reading, including digital methods we have not yet imagined?
 
-All of us are excited about emerging possibilities of digital reading at multiple scales:  not just systematic searching, but "reading" to identify latent patterns we don't even know to search for.  How do we create *digital* editions that can support a full range of *digital* reading, including digital methods we have not yet imagined?
-
-
+We take as a point of departure the central idea of the Greek term ἔκδωσις, and its calques in various modern languages (*editio*, edition, Ausgabe...)  An edition is first and foremost *giving away* a version of a text.  Using analog technologies, giving away a physical artifact (whether printed book, vellum codex or papyrus scroll) makes available to the new owner every possibility of analog reading.  To make every possibility of digital reading available when we give away a digital edition, we need to plan for three kinds of access.  A digital edition must by *legally*, *technically* and *semantically* accessible.
 
 
-## ἔκδωσις  / editio / edition / Ausgabe
+*Legal accesibility* is a well understood problem in 2017, and well defined solutions are readily available.  A digital edition must be licensed for reuse so that automated reading of the edition can proceed without limitation by requirements for special permissions.  The Homer Multitext project uses Creative Commons licenses permitting reuse for all of its digital content.
+
+*Technical accessibility* has also been extensively studied.  To ensure that our editions remain technically accessible they must be in openly specified, plain-text formats.  The ideal is the simplest possible format that is also expressively complete.  Like most digital editorial projects, the Homer Multitext uses XML to produce semantically encoded editions following the guidelines of the Text Encoding Initiative (TEI).
+
+If the scholarly community has well defined solutions to these problems, however, we lack any comparable consensus on how to make an edition *semantically* accessible.  It may once have been a goal of the TEI to facilitate interchange of texts, but the reality today is that using XML following TEI guidelines guarantees that you can *not* simply exchange texts with other projects.  The guidelines are rich, and frequently offer multiple recommended solutions to a problem;  the generic schemas for validating TEI following the guidelines allow multiple possible embeddings and sequences of elements even when the editor intends to follow a single recommendation.[^teiambig]  Alternative readings are a further complication:  every form of TEI `choice` element presents an ambiguity that a digital reader has to resolve.
 
 
-## Access
+[^teiambig]:  Consider a simple example that can enormously complicate digital reading of a text.  We can use the TEI `persName` element to identify personal names, and TEI `abbr` to identify abbreviations.  But what is the proper encoding of an abbreviated personal name?  The "TEI-all" schema allows an example like `<persName><abbr>Αριστ</abbr></persName>`;  it also allows `  <abbr><persName>Αριστ</persName></abbr>`.
 
-1.  legal
-2.  technical
-2.  semantic
+More generally, XML is limited to validating a given syntax; real semantic accessibility would require that we validate contents as well.
 
-
-
-
-## Legal accesibility
-
-
-A solved problem:
-
--   license for **reuse** (e.g., CC), or
--   public domain
-
-
-
-## Technical accessibility
-
--   public version control (github)
--   human-readable formats
--   simplest format that is expressively complete
-
-
-
-## Result: TEI XML
-
-
-
-
-## Semantically accessible?
-
-Not yet...  for two reasons
-
-
-
-## 1. Whose TEI?
-
-> Using TEI in 2017 guarantees you can **not** simply exchange data!
-
-
-## 2.  Multivalence is ambiguity
-
--   every TEI `choice` is digitally ambiguous
--   requires full object model to process correctly
-
-
-
+Like many projects, therefore, the HMT has defined its own project standards for using a subset of the TEI guidelines, and imposes 
 
 ## Validation beyond TEI syntax
 
@@ -114,6 +71,12 @@ Not yet...  for two reasons
 1.  abstract model
 2.  specification (syntax)
 3.  implementation
+
+
+-   requires full object model to process correctly
+
+
+
 
 
 ## Abstract model
@@ -178,11 +141,6 @@ See forthcoming.[^citizenscholar]
 
 [^citizenscholar]: Neel Smith, "Citizen Scholarship in the Homer Multitext Project"  in *Pushing the Boundaries of Historia* (edited by Lee Fratantuono and Mary English) (Routledge: forthcoming).
 
-    urn:cite2:hmt:pers:pers1
-
-    24.338 Πηλείωνα
-    24.394 Ἀχιλλεὺς
-    24.406 Πηληιάδεω Ἀχιλῆος
 
 
 
