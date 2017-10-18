@@ -1,4 +1,6 @@
-## Layout and content in the Venetus A
+# Section 2
+
+## Analyzing layout and content in the Venetus A
 
 ![Folio 12 recto](https://raw.githubusercontent.com/neelsmith/heidelberg/master/imgs/DSE2.JPG)
 
@@ -13,30 +15,19 @@ Here we focus on the much less clear relationship among the other three zones of
 We used topic modelling to explore the content of scholia in these three zones, and to highlight  ways the content of the various zones might differ quantitatively.  Specifically, we used the R-language implementation of the Latent Dirichlect Allocation (LDA) algorithm in Thomas Köntges' ToPan.[^topan] Each scholion was treated as a distinct document.
 
 
-[^topan]: https://github.com/ThomasK81/ToPan
+[^topan]: Available on github from https://github.com/ThomasK81/ToPan
 
-Because of the semantic model the digital editions of the scholia are built upon, it was relatively easy to create a version of the scholia which was optimized for topic modelling using the progamming language scala. In general, running a topic model on an ancient Greek text requires a good deal of preparation.
 
+Topic modelling requires a carefully prepared text.  We derived a series of plain-text editions from our archival TEI source until we had a citable edition that was optimized for topic modelling.
 
 Not only do the scholia need to be lemmatized, but topic modelling requires a corpus in which the most common words are eliminated. Prior to conducting this specific analysis, we had already created various normalized versions of the Venetus A scholia by manipulating the archival text of the Homer Multitext project with scala.
 
+We began from a reading of the archival text that expanded abbreviations to their full form.  From this, we derived a second edition that normalized Byzantine orthography to modern orthographic standards, and resolved named entities to unique identifiers.  (Each of the many scholars named "Ptolemy" could then be distinguished, for example.)  This edition formed the basis of a lemmatized edition.  We used the Morpheus parsing system from the Perseus project to "edit" our text, so that all tokens were presented as identifiers for lemmatized lexical entities.  Because our citation scheme was aligned across all these editions, we could readily compare surface forms in modern or Byzantine orthography with the lemmatized tokens.
 
-In one such version, the HMT's diplomatic transcription of the Venetus A was normalized according to its paleography (a p-normalized version), wherein the words of the scholia were normalized to match the explicit intention of the scribe. So, for example, words which the scribe abbreviated were normalized into their expanded form. A second version of the text took the p-normalized version and normalized it further according to modern orthographic standards (o-normalized version).
-
-
-This is understood easily for words which were missing a breathing mark but were otherwise spelled correctly and had correct accentuation. In this o-normalized edition, all such words were reproduced with the appropriate breathing mark.
+Finally, we created a version suitable for topic modelling by curating a list of stop words, and removing those tokens from the orthographically normalized edition.
 
 
-A third version of the text took the o-normalized version and normalized further, but this time according to morphology in order to create a completely lemmatized version of the text (m-normalized version).
-
-
-This third version made use of the Morpheus parser.
-
-
-Finally, the topic modelling version of the scholia was created by removing the most common words from the the m-normalized version of the text. All of these various versions of the scholia were able to manipulated so easily because the original archival HMT data was built upon that previously discussed explicit semantic model. That abbreviated words can be identified separately from non-abbreviated words, for example, was extremely useful in creating the p-normalized version of the text.
-
-
-Because all topic modelling software require users to define the number of topics the program should produce, we had to experiment with the nunmber of topics before any real analysis. Having the software produce too many topics risks not observing any meaningful patterns since extant patterns may be arbitrarily split up into more topics than necessary. On the contrary, producing too few topics can render topics meaningless since words that are supposed to belong to different topics are lumped together. Ultiamtely, we found that 15 topics worked best for our analysis.
+Because topic modelling requires users to define the number of topics the program should produce, we manually analyzed the results of experiments with differing number of topics. Generating too many topics risks not observing meaningful patterns since they may be arbitrarily split up into more topics than necessary. On the contrary, producing too few topics can render topics meaningless  by lumping together topics that we would like to distinguish. Ultiamtely, we found that fifteen was a good compromise for our analysis.
 
 One of the advantages of ToPan is that it produces a clear visualization of the topic modelling results, such as the visualization in Figure 2.
 
@@ -44,11 +35,12 @@ One of the advantages of ToPan is that it produces a clear visualization of the 
 
 In this visualization, each of the circles on the left represents a different topic; when a topic is highlighted, the words which are most strongly associated with the topic are listed on the right. (For clarity, English translations of each of the most strongly associated words have been provided in Figure 2.) Though the results of topic model actually exist in a multidimensional space, the results in this visualization are reduced into a two-dimensional plane using principal components analysis. The distance between circles reflects how closely related the topics are.
 
-As for this particular topic, topic 9, what is most striking among the words which the computer found most strongly associated with one another is the repeated presence of the name Aristarchus, alongside Zenodotus and Aristophanes of Byzantium, all of whom were head of the library of Alexandria at some point in the third and second centuries B.C.E. All three were prominent Homeric scholars producing seminal scholarship which has survived only in pieces through scholiastic references in manuscripts such as the Venetus A. Since a "topic" in a topic model is defined as a repeated pattern of co-occurring words, the appearance of these three names within the same topic indicates that there is a specific pattern of language used when talking about these three scholars, and particularly when discussing Aristarchus. For this reason, we referred to the this topic 9, the ninth topic of this particular topic model, as the "Aristarchus topic."
 
-For the purposes of this analysis, it would be interesting and telling if this pattern of language were to appear with a greater frequency in any of the three zones of interest (main, intermarginal, and interior). While the ToPan visualization is a great tool for analyzing different word patterns, the visualization alone does not give information about what scholia are strongly or weakly associated with each of the topics. However, ToPan does provide robust data tables providing this exact information. In other words, using these tables we were able to analyze how strongly this Aristarchus topic is associated with each scholion since this relationship is scored quantitavtively by the software. This quantitaive measure, the theta-score, exists on a scale of 0 to 1. Were a scholion to have a theta-score of 0.0 with respect to a particular topic, this would indicate that this particular scholion contains no content from that particular topic. Conversely, a theta-score of 1.0 would indicate that the content of this scholion would likely come from this topic alone.
+A "topic" in a topic model is defined as a repeated pattern of co-occurring words. In the topic illustrated here (topic 9) we see that the names of Aristarchus of Samothrace,  Zenodotus of Ephesus and Aristophanes of Byzantium are prominent.  All were head of the library of Alexandria at some point in the third and second centuries B.C.E.  and all three produced editions of the *Iliad* known only through references such as the scholia to the Venetus A.   Looking at the most significant terms in this topic and reading specific scholia classified in topic 9, we interpreted the common pattern of topic 9 as the "Aristarchus topic," where the editorial work of Aristarchus is discussed and often compared to his predecessors.
 
-Ultimately, we were able to move beyond just analyzing individual scholia to analyzing whole zones of scholia. Using these theta-tables we identified the proportion of scholia within each zone (main, intermarginal, and interior) which were strongly associated with this Aristarchus topic. We defined a "strong association" as a scholion having a theta-score equal to or greater than 0.9. Below are the results of this analysis.
+It would be interesting and telling if this topic were to appear with a greater frequency in any of the three zones of interest (main, intermarginal, and interior). While the ToPan visualization shows relations of different word patterns, the visualization alone does not give information about what scholia are strongly or weakly associated with each of the topics. However, ToPan does offer robust data tables providing exactly this information. Using these tables, we were able to analyze how strongly the Aristarchus topic is associated with each scholion since this relationship is scored quantitavtively by the software. This quantitaive measure, the theta-score, is scaled from 0 to 1. Were a scholion to have a theta-score of 0.0 with respect to a particular topic, this would indicate that this particular scholion contains no content from that particular topic. Conversely, a theta-score of 1.0 would indicate that the content of this scholion would likely come from this topic alone.
+
+Ultimately, we were able to move beyond just analyzing individual scholia to analyzing whole zones of scholia. Using the theta-tables, we identified the proportion of scholia within each zone (main, intermarginal, and interior) which were strongly associated with the Aristarchus topic. We defined a "strong association" as a scholion having a theta-score equal to or greater than 0.9. Below are the results of this analysis.
 
 
 | Zone                            | Total distrib. in Ven. A | Distrib. within Aristarchus Topic |
