@@ -1,9 +1,16 @@
-As hinted at, the second research question focuses on the sources for the scholia in the Venetus A manuscript and this too made use of the advantages from the HMT's semantic model of the scholia.
+# Section 3
+
+
+## Finding the language of Aristarchus
 
 
 How influential were the Alexandrian editors in shaping the written *Iliad* that we have today?
 
-When the Homeric epics began to interact with writing, there were many different versions which were recorded. This is because each telling of the Iliad or the Odyssey was different due to their originally oral nature. Thus there is no one authoritative text. Because of this, there exist many "multiforms," or different readings of certain words, phrases, or whole lines. These multiforms can be seen very easily when one looks at the scholia of the 10th century C.E. Venetus A manuscript. The aforementioned Alexandrian editors, Aristarchus, Zenodotus, and Aristophanes, created their own editions of the *Iliad* which were very influential in shaping the text of the epic that we have today. Specifically, they are believed to be responsible for narrowing down the canon of multiforms which we now have. As mentioned, the editions of these editors are unfortunately not extant and have not been for quite some time; however, some of their comments were transmitted and preserved in the Venetus A.
+
+
+When the Homeric epics began to interact with writing, there were many different versions which were recorded. This is because each telling of the Iliad or the Odyssey was different due to their originally oral nature. Thus there is no one authoritative text. Because of this, there exist many "multiforms," or different readings of certain words, phrases, or whole lines. These multiforms can be seen very easily when one looks at the scholia of the 10th century C.E. Venetus A manuscript.
+
+The aforementioned Alexandrian editors, Aristarchus, Zenodotus, and Aristophanes, created their own editions of the *Iliad* which were very influential in shaping the text of the epic that we have today. Specifically, they are believed to be responsible for narrowing down the canon of multiforms which we now have. As mentioned, the editions of these editors are unfortunately not extant and have not been for quite some time; however, some of their comments were transmitted and preserved in the Venetus A.
 
 The manuscript itself provides very little information about the sources of its scholia. At the end of several books of the *Iliad* in the Venetus A, there is a subscription which cites four scholars from the first and second centuries C.E. However, there are scholars referenced within the scholia who are from after this time period, so we know that this subscription does not provide us with a complete view of the sources used.
 
