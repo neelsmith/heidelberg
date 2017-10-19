@@ -1,74 +1,94 @@
+
+
+
 # Section 3
 
 
 ## Finding the language of Aristarchus
 
 
-How influential were the Alexandrian editors in shaping the written *Iliad* that we have today?
+How influential were the Alexandrian editors in shaping the written *Iliad* that we have today?  What role did the editions of Zenodotus, Aristophanes and Aristarchus play in narrowing down the multiformity of the earliest written versions of the *Iliad*  to the relatively homogeneous text we find in the medieval manuscripts?
+
+The *schoilia* of the Venetus A offer a window on the editorial work of scholars from the Alexandrians through late antiquity.  The manuscript itself provides very little information about the sources of its *scholia*, however. At the end of several books of the *Iliad*, a subscription cites four scholars of the first and second centuries C.E. However, the *scholia* themselves frequently refer to scholars from later periods, so the subscription does not provide us with a complete view of the sources lying behind the *scholia*.
+
+With the digital edition of the HMT, can we pinpoint specific source material for the *scholia* with more precision than has been achieved previously?  In particular, can we identify material stemming directly from the editions of Aristachus? To address these questions, we constructed a machine-learning model for identifying  *scholia* that can be directly associated with Aristarchus.
+
+In contrast to the unsupervised classification of topic modelling, we build our classifier from a manually analyzed set of training data.  A second set of manually analyzed data is then used to evaluate the performance of the model.  The resulting model can be applied to arbitrarily large sets of data.
+
+Our first step, then, was to identify features that mark *scholia* as "Aristarchan."   The Venetus A uniquely preserves roughly 2800 critical signs marking noteworthy lines of the *Iliad*, and indicating that a comment discusses some aspect of that line. In the Venetus A, these marks therefore call our attention to lines of main text discussed in *scholia*, but the system was invented by Aristarchus, whose edition of the *Iliad* and commentary on the *Iliad* were two separate documents. The critical signs were especially helpful for readers trying to coordinate two papyrus scrolls: the apearance of a sign in the edition would notify them to check the commentary.  The Venetus A alone has preserved these Aristarchan signs, and while their presence on a line does not guarantee that the corresponding *scholion* is Aristarchan, it unambiguously means that Aristarchus' commentaries originally dicussed this line.[^bird]
+
+
+[^bird]:  On the Aristarchan critical signs, see Graeme Bird, "Critical Signs—Drawing Attention to 'Special' Lines of Homer's *Iliad* in the Manuscript Venetus A" in *Recapturing a Homeric Legacy* (= Hellenic Studies 35), edited by Casey Dué, pp. 89-115.  Available from  <http://www.homermultitext.org/Pubs/Due_Recapturing_a_Homeric_Legacy.pdf>
+
+
+*Scholia* on lines marked by Aristarchan critical signs are often introduced with the word "ὅτι," "because" (transliterated "hoti"). This elliptical expression is short for "The [critical] sign is there because..." and indicates that the comment is meant to explain the presence of the critical sign.  Because "hoti" occurs so frequently in *scholia* which are associated with a critical sign, it is likely that the comment introduced by "hoti" was transmitted alongside the critical signs and is therefore Aristarchus' own way of explaining why he placed a critical sign next to a line in his edition. We therefore considered the presence of an initial *hoti* in a *scholion* an Aristarchan feature.
+
+We looked at n-gram frequencies of the text of *scholia*, and stumbled across an unexpectedly clear formula that is characteristic of *scholia* marked by a critical sign and introduced by "hoti".  Aristarchus' edition responded directly to the edition of his predecessor, Zenodotus. While Zenodotus' name appears frequently in the Venetus A, and not just in "hoti" *scholia*, we found that his edition is cited in two distinct ways in the *scholia*.  Outside of the "hoti" *scholia*, he is regularly cited with the preposition παρά (παρὰ Ζηνοδότῳ, "in [the work of] Zenodotus"), as are other editors and scholars.  In the "hoti" scholia, however, he often appears as the subject of the verb γράφω (literally, "to write") when the *scholion* cites his edition.  (In English, we say that editors "read" a particular variant; in Greek, they "write" one version or another.)  Remarkably, no other individual appears as the subject of the verb γράφω in the eighteen books of *scholia* we examined.  This makes perfect sense if it was Aristarchus' practice to cite editors with γράφω, and the practice of later scholars to cite editors with παρά. We therefore considered the expression "Ζηνόδοτος γράφει" ("Zenodotus writes...") to be an indicator of directly Aristarchan language in a *scholion*.
+
+
+For an automated classification, it is equally valuable to identify features which indicate that a scholion is likely *not* Aristarchan.  Citing Zenodotus with the phrase "παρὰ Ζηνοδότῳ" is negatively correlated with the Aristarchan features we have defined:  it occurs 27 times in the books we examined, but only five of those *scholia* were on lines marked with a critical sign.  Reference to Zendotous using this formula suggests a later source or later reworking of Aristarchus' commentary, so we used th phrase "παρὰ Ζηνοδότῳ" to identify post-Aristarchan language.
+
+The presence of Aristarchus' name in a comment is also an indication that the language of the *scholion* is post-Aristarchan. This is based on the assumption that Aristarchus did not write about himself in the third person. The assumption is strengthened by the fact that Aristarchus' name rarely appears in *scholia* on lines with critical signs.  On the other hand, the names of Aristarchus' *predecessors* appear much more frequently in the *scholia* which are connected with the critical signs, since Aristarchus often disagreed with them by name in these *scholia*. Thus the presence of Aristarchus' name in a scholion indicates some scholar at a later time was writing about him and his work on the *Iliad*.
+
+Similarly, the presence of the name of a post-Aristarchan scholar obviously indicates that the language of the *scholion* is later than Aristarchus.
+
+
+Each of these features can be treated as a binary value encoded as 0 or 1:  either a scholion begins with "hoti" or it doesn't, etc.  In addition, we realized that we could use results from the previously described topic modelling as features for our classifier.  Two of the topics from the fifteen-topic topic model described were relevant for picking out Aristarchan material.  One was the topic 9 we have examined, where the editorial work of Aristarchus is the subject of discussion.  Contrasting with this, topic 6 was defined by terms associated with Aristarchus’s own language, such as "Zenodotus," "writes" and "athetize."  We interpreted topic 6 as "Aristarchus' own comments."
+
+We used the theta scores for topics 6 and 9 as features in our data for each *scholion*.  To  reiterate, these scores give an indication of how closely the words in a scholion relate to the words of a given topic, and are scaled from 0.0-1.0, with a score closer to 0 meaning the *scholion* is not strongly correlated with the topic in question, and a score closer to 1 meaning that the scholion is very strongly correlated with the topic in question.
+
+Topic 6 consists of words which are strongly associated with Aristarchus' own language, so a high theta score for topic 6 suggests that the language of the *scholion* is strongly Aristarchan.
+
+Since topic 9 consists of words used to discuss Aristarchus, his editions, and other editors, high theta-scores for topic 9 indicate language from a post-Aristarchan source or reworking of his editions.
+
+The final list of eight features included four that we expected to characterize directly Aristarchan material, and four that we expected to characterize later material:
+
+### Aristarchan features
+
+-   Critical sign
+-   γράφει (active)
+-   Initial ὅτι
+-   Higher topic 6 score
+
+### Post-Aristarchan features
+
+-   παρὰ Ζηνοδότῳ
+-   Aristarchus' name
+-   Post-Aristarchan name
+-   Higher topic 9 score
+
+Once we computed the feature set for each *scholion*, we set aside a randomly selected sample of 100 *scholia* from the main, intermarginal, and interior zones.  We read the text of each *scholion*, and assigned it a class. It is important to recognize that the manual classification is based on our own, very traditional close reading.  Our arguments for calling a *scholion* "Aristarchan" or not are the same kind arguments that have been used in *Quellenkritik* of the *scholia* for more than two centuries.  The question an automated classifier can address is how closely the eight features we defined can reproduce those interpretations.
+
+We ultimately defined four classes.  In addition to our intial goal of classifying *scholia* as "Aristarchan," we split non-Aristarchan scholia  into "paraphrase of Aristarchus" and "post-Aristarchan" classes. We applied the "paraphrase" class to *scholia* mentioning Aristarchus or his editions, but no other later editor, when we intepreted these *scholia* as reworkings in third-person language of originally Arisarchan material.  We also recognized that many scholia are difficult or impossible to classify confidently. We classified these as "indeterminate."
+
+In our random sample of 100 *scholia*, the "indeterminate" class was the most frequent (38), followed closely by "Aristarchan" (36), with the "paraphrase" and "post-Aristarchan" classes about evenly matched.
+
+
+We next split the manually classified *scholia* into a training set and an evaluation set.  While many machine-learning algorithms could be applied to learn a model from a training set of data, we chose to use a decision tree[^sparkml]
+
+[^sparkml]:  Specifically, we used the implementation in the Apache Spark machine learning libary.  For documentaiton, see "Decision Trees - RDD-based API."https://spark.apache.org/docs/latest/mllib-decision-tree.html.
 
 
 
-When the Homeric epics began to interact with writing, there were many different versions which were recorded. This is because each telling of the Iliad or the Odyssey was different due to their originally oral nature. Thus there is no one authoritative text. Because of this, there exist many "multiforms," or different readings of certain words, phrases, or whole lines. These multiforms can be seen very easily when one looks at the scholia of the 10th century C.E. Venetus A manuscript.
 
-The aforementioned Alexandrian editors, Aristarchus, Zenodotus, and Aristophanes, created their own editions of the *Iliad* which were very influential in shaping the text of the epic that we have today. Specifically, they are believed to be responsible for narrowing down the canon of multiforms which we now have. As mentioned, the editions of these editors are unfortunately not extant and have not been for quite some time; however, some of their comments were transmitted and preserved in the Venetus A.
-
-The manuscript itself provides very little information about the sources of its scholia. At the end of several books of the *Iliad* in the Venetus A, there is a subscription which cites four scholars from the first and second centuries C.E. However, there are scholars referenced within the scholia who are from after this time period, so we know that this subscription does not provide us with a complete view of the sources used.
-
-
-via intermediate transmission
-
-
-
-The ultimate goal of this line of research was to be able to pinpoint specific source material for the scholia with more precision than has been achieved previously. The focus was on specifically attempting to recover material in the scholia of the Venetus A manuscript which comes directly from the editions of Aristachus. More broadly, the aim was to be able to determine the features which are associated with Aristarchan language and thereby create a model for determining with some confidence whether a scholion is Aristarchan or post-Aristarchan.
-
-The first step, then, was to identify features that scholia can possess which are "Aristarchan." The features which were ultimately used in this analysis were chosen based on what was known about the transmission of the scholia and the patterns which have been observed over the years of working on the Homer Multitext project and analyzing its digital edition of the Venetus A. A brief description of each of these significant features will be given before examining them altogether.
-
-The first Aristarchan feature is the appearance of critical signs. Critical signs are small symbols which appear next to some lines of Iliadic text in the Venetus A. These often indicate that there is a scholion which is discussing something in that line. Thus these marks are a way of linking the main text to the scholia. As we know from Dindorf, these signs are unique to Aristarchus. Aristarchus' original edition likely consisted of two separate documents, one with the text of the Iliad, and one with his comments. Thus the critical signs were especially helpful for his readers, as it would notify them to check the commentary whenever they arrived at a line with a critical sign. Because Aristarchus included these signs in his own edition and they were transmitted along with the text, we can assume that the presence of a critical sign on a line indicates that a scholion on that same line, and especially one which makes a reference to the sign, is Aristarchan material. Because they are known as Aristarchan critical signs, it is reasonable to assume that the appearance of any one of them next to a line indicates an Aristarchan trace. Next, will be a discussion of the specific words and patterns of language which often accompany these critical signs.
-
-"ὅτι" (transliterated "hoti"), meaning "because," is often the first word of a scholion which is commenting on a line which has a critical sign on it. It is meant to explain the presence of the sign, with the single word "ὅτι" representing the phrase "The [critical] sign is there because..." Because "ὅτι" occurs so frequently in scholia which are associated with a critical sign, it is likely that the "hoti" was transmitted alongside the critical signs and is therefore Aristarchus' own way of explaining why he placed a critical sign next to a line in his edition. Thus the presence of an initial *hoti* in a scholion was considered an Aristarchan feature.
-
-Another significant word which appears frequently in conjunction with critical signs is an active, third-person, singular form of the verb γράφω, meaning "to write" (γράφει). In the scholia, this verb is almost always governed by Zenodotus. In fact he is the only person who is said to write, using this specific form of the verb. Moreover, this formula of "Ζηνόδοτος γράφει" is one which commonly appears in *hoti* scholia. Because of critical signs' and *hoti* scholia's link to Aristarchus, the presence of an active form of γράφω can also be considered an Aristarchan feature.
-
-In addition to features which are positively associated with Aristarchan language, there are those which indicate that a scholion is likely not Aristarchan. Despite Aristarchus’s frequent citation of Zenodotus, we cannot conclude that every every reference to Zenodotus in the scholia is a direct quote from Aristarchus. In addition to "Ζηνόδοτος γράφει," there is a separate formula for citing Zenodotus which appears frequently in the scholia: "παρὰ Ζηνοδότῳ." This phrase, unlike "Ζηνόδοτος γράφει," does not seem to be associated with any critical sign. Of the twenty-seven occurrences of "παρὰ Ζηνοδότῳ" in HMT edited books of the Venetus A, only five of these appear in scholia which have corresponding critical signs. Because this formula does not appear to coincide strongly with any critical sign, we cannot assume that it is Aristarchan language. This formula perhaps comes from a separate source or later reworking of Aristarchus’ editions. Thus this phrase "παρὰ Ζηνοδότῳ" will be used as a post-Aristarchan feature.
-
-The presence of Aristarchus' name himself is also likely an indication that the scholion is post-Aristarchan. This is based on the assumption that Aristarchus was not writing about himself in the third person. This assumption is strengthened by the fact that Aristarchus' name does not appear with notable frequency in conjunction with critical signs. Rather, Aristarchus' predecessors appear much more frequently in the scholia which are connected with the critical signs, since Aristarchus often disagreed with them in these scholia. Thus the presence of Aristarchus' name in a scholion indicates some scholar at a later time was writing about him and his work on the *Iliad*.
-
-In a similar vein, the presence of a post-Aristarchan scholar's name obviously indicates that the scholion is taken from a source that is later than Aristarchus.
-
-In addition, results from the topic model wich was previously discussed were included in the set of Aristarchan features. From that same 15-topic topic model created by ToPan, there were two topics of interest. One was that same "Aristarchus" topic, designated as topic 9, which contained several words which are used when discussing Aristarchus, such as "Aristarchus" and "commentary." The other topic, topic 6, contained many words associated with Aristarchus’s own language, such as "Zenodotus," "writes" and "athetize."
-
-In order to make use of the topic model, the previously discussed theta-scores from the ToPan theta-tables were again implemented. To reiterate, these scores give an idication of how closely the words in a scholion relate to the words of a given topic. Put another way, the score report how much each scholion "belongs to" each topic. And, again, to be clear, these scores range from 0.0-1.0, with a score closer to 0 meaning the scholion is not strongly correlated with the topic in question, and a score closer to 1 meaning that the scholion is very strongly correlated with the topic in question.
-
-Since topic 6 consists of words which are strongly associated with Aristarchan language, it follows that scholia which contain high theta-scores for topic 6 would contain language which is similar to that of Aristarchus himself.
-
-Since topic 9 consists of words used to discuss Aristarchus, his editions, and other editors, we can consider this topic as post-Aristarchan due to the strong presence of Aristarchus himself in it. It follows that scholia which contain high theta-scores for topic 9 would contain language of a post-Aristarchan source or reworking of his editions. Thus these topic modeling scores were included in the list of features because of their potential correspondence to the presence or absence of other Aristarchan features.
-
-Thus the final list of features which were chosen to analyze the scholia can be divided into four Aristarchan features and four post-Aristarchan features:
-
-## Aristarchan features
-
-* Critical sign
-* γράφει (active)
-* Initial ὅτι
-* Higher topic 6 score
-
-## Post-Aristarchan features
-* παρὰ Ζηνοδότῳ
-* Aristarchus' name
-* Post-Aristarchan name
-* Higher topic 9 score
-
-After this set was defined, it was determined how many of these features each scholion contained, and the theta-scores for topics 6 and 9 were extracted for each scholion. For the purposes of analysis, only the main, interior, and intermarginal scholia were used.
-
-The ultimate goal for this data was to create an Aristarchan classifier able to take a scholion and determine, as best it can, if the language in it is Aristarchan or not, and therefore if the source for the scholion can be traced back to Aristarchus' own edition or some later work. However, before any such machine-learning model could exist, some manual work had to be done in order to have a sample set of scholia which are defined as Aristarchan or post Aristarchan. That is, the model needed something from which to learn. Thus the next step, upon gathering all of these features, was to collect a random sample of 100 scholia from the main, intermarginal, and interior zones, read each one and assign it a classification based on the language and features it contained. This would be the training set.
-
-During the manual classification process, it quickly became apparent that this task was not as simple or clear-cut as it first appeared. There are many scholia which are difficult or even impossible to classify with the binary distinction of Aristarchan or post-Aristarchan. This is because, as demonstrated above, there is only a limited set of features which hint that a scholion is Aristarchan or not. However, this by no means indicates that these are the only markers of Aristarchan and post-Aristarchan language. For example, just because a scholion does not contain γράφει and ὅτι, this does not mean that it is definitively not Aristarchan. Nor, however, is a scholion definitively post-Aristarchan if it does not contain any of the post-Aristarchan features. Because of the many scholia which contained nothing to indicate whether they were Aristarchan or post-Aristarchan, a third label, "indeterminate," was created.
-
-A fourth cateogry was also created by splitting the post-Aristarchan category into two sets: post-Aristarchan and Aristarchan paraphrase. Aristarchan paraphrase was defined as a scholion which mentions Aristarchus or his editions, but no other later editor. That is, they are explicitly referenced reworkings of his editions. If a scholion references both Aristarchus and a later editor, it was classified as post-Aristarchan. Thus each of the one hundred analyzed scholia received one of these four labels. The indeterminate label was the most frequently assigned out of all (38/100), followed closely by Aristarchan (36). The paraphrase and post-Aristarchan labels are are about evenly matched in this list. In this way, this manual classification provided me with a reasonable number of scholia which fall into each of these four categories.
 
 The next step was to take this set of manually labeled scholia and use it as a training set for a machine-learning model. That is, using machine learning, it was possible to create an Aristarchan identifier which uses the features which were clustered together and the labels which were assigned to the training set of scholia. The method employed here was decision tree learning. As explained by Spark, decision trees are "popular methods for the machine learning tasks of classification." Moreover, within a model, "each partition is chosen greedily by selecting the best split from a set of possible splits, in order to maximize the information gain at a tree node." More simply, the model learns from the data provided (in this case, the manually classified set of scholia), and creates its own model that "splits" on certain variables (features). The goal, then, is to have a model which, when applied, can predict classifications accurately.
 
-Thus, a decision tree script which uses a generic Spark machine learning process was created specificially for this analysis. In this process, the manually-classified set was split into a training set and an evaluation set. The model learns from the training set, and then creates a series of binary decisions in order to determine how to classify scholia depending on the features they do or do not contain. Next, this series of decisions is applied to the evaluation set. Through this method, it was possible to create a decision tree model that was up to 90% accurate when applied to the evaluation set. If one were to randomly assign labels to scholia, one would expect about 25% accuracy, as there are four different classifications. Thus 90% accuracy is very significant. The next step in this process is to apply this model to the remaining 7900 scholia in my data set and obtain the statistics for how many scholia of each classification it can distinguish.
+Thus, a decision tree script which uses a generic Spark machine learning process was created specificially for this analysis.
+
+
+
+
+The model learns from the training set, and then creates a series of binary decisions in order to determine how to classify scholia depending on the features they do or do not contain. Next, this series of decisions is applied to the evaluation set.
+
+Through this method, it was possible to create a decision tree model that was up to 90% accurate when applied to the evaluation set. If one were to randomly assign labels to scholia, one would expect about 25% accuracy, as there are four different classifications. Thus 90% accuracy is very significant. The next step in this process is to apply this model to the remaining 7900 scholia in my data set and obtain the statistics for how many scholia of each classification it can distinguish.
+
+
+
+
+
+
+
 
 From the results of the decision tree, it appears that both Aristarchan scholia and post-Aristarchan scholia fall in the main zone more frequently. However, scholia which directly mention Aristarchus are most often in the intermarginal zone. The interior zone's distributions are often similar to those of the intermarginal, but usually slightly less extreme. At one point, the zone of scholia was added as a feature for the decision tree to determine if this helped with classification. However, when this was added to the list of features, the ensuing decision tree model was actually less accurate. This demonstrates that scholia zone is not a satisfactory enough feature for determining source. Furthermore, the features which were identified are more accurate for predicting source.
 
