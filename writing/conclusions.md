@@ -5,28 +5,8 @@ As our title indicates, these are preliminary results, but they are significant 
 
 We were able to analyze the *scholia* of the Venetus A manuscript in part because of the architecture of the HMT editions. The abstract semantic model of the HMT defines everything encoded in the project's archival XML edition.  The archival edition is complex, and necessarily includes multiple possibilities for reading the text (abbreviated or expand, original or corrected version, etc.).  A code library implementing the semantic model makes it straightforward to generate univocal, semantically unambiguous editions from the XML source.  We developed one edition optimized for topic modelling, and another consisting solely of eight features that we trained a classifier to assign to one of four classes of our own definition.
 
-"Reading" these editions is no longer just for people.  Automated processes can read an entire corpus, and can interpret editions that are practically unintelligible to human readers.  The editions we created for topic modelling and for automated classification are algorithmically derived from our hand-crafted XML text, but essentially meaningless to the human eye.  At the same time, since all the editions are automatically aligned through our use of canonical citation, we can read a version of the same text intended for people.
+"Reading" these editions is no longer just for people.  Automated processes can read an entire corpus, and can interpret editions that are essentially unintelligible to human readers.  The editions we created for topic modelling and for automated classification are algorithmically derived from our hand-crafted XML text, but nearly meaningless to the human eye.  At the same time, since all the editions are automatically aligned through our use of canonical citation, we can read a version of the same text that *is* intended  for a human audience.
 
+One goal of the HMT is to make all of our work replicable and therefore falsifiable.  Canonical citation plays an important role in this, too.  We expect these preliminary conclusions to be refined and modified as later scholars work with a complete edition of the Venetus A and its *scholia*.  As they do so, it will be possible to determine exactly where other editions of the Venetus might read the text differently, or where a topic modelling system might score the classificaiton of a particular *scholion* differently.
 
-
-
-We expect them to be refined and modified as later scholars work with a complete edition of the Venetus A and its scholia.
-
-
-citable verify
-
-falsifiable
-comprehensive
-
----
-
-
-## General conclusions
-
--   digital editions *always* mediated by machine
--   syntax is not enough:  *model/specification/implementation*
--   editing, reading, analysis converge
-
-
-
----
+Even when the HMT includes every word of the uniquely rich Venetus A manuscript, there will be no limit on the ways we can choose to read — and hence edit — these texts.
